@@ -1,15 +1,15 @@
 format,name,country,role,matches,runs,average,hundreds,fifties,wickets,bowl_avg,catches_stumpings,not_outs,highest,bbi_wickets,bbi_runs,strike_rate,econ_rate,photo
-Test,Sachin Tendulkar,IND,Batsman,200,15921,53.8,51,68,46,54.2,115,33,248,3,10,,,
+Test,Sachin Tendulkar,IND,Batsman,200,15921,53.8,51,68,46,54.2,115,33,248,3,10,,,players/sachin-tendulkar.jpg
 Test,Rahul Dravid,IND,Batsman,164,13288,52.3,36,63,1,39,210,32,270,1,18,,,players/rahul-dravid.jpg
 Test,Virender Sehwag,IND,Batsman,104,8586,49.3,23,32,40,47.3,91,6,319,5,104,,,players/virender-sehwag.jpg
 Test,VVS Laxman,IND,Batsman,134,8781,45.5,17,56,2,114,135,34,281,1,54,,,players/vvs-laxman.jpg
 Test,Ricky Ponting,AUS,Batsman,168,13378,51.9,41,62,0,,196,23,257,,,,,players/ricky-ponting.jpg
 Test,Matthew Hayden,AUS,Batsman,103,8625,50.7,30,29,0,,128,14,380,,,,,players/matthew-hayden.jpg
-Test,Brian Lara,WI,Batsman,131,11953,52.9,34,48,0,,164,6,400,,,,,
-Test,Inzamam-ul-Haq,PAK,Batsman,120,8830,49.6,25,46,0,,81,22,329,,,,,
-Test,Mahela Jayawardene,SL,Batsman,149,11814,49.8,34,50,6,62,205,15,374,2,30,,,
-Test,Kevin Pietersen,ENG,Batsman,104,8181,47.3,23,35,5,64,55,8,227,3,52,,,
-Test,Mohammad Ashraful,BAN,Batsman,61,2737,22.8,4,12,7,45,34,6,158,2,33,,,
+Test,Brian Lara,WI,Batsman,131,11953,52.9,34,48,0,,164,6,400,,,,,players/brian-lara.jpg
+Test,Inzamam-ul-Haq,PAK,Batsman,120,8830,49.6,25,46,0,,81,22,329,,,,,players/inzamam-ul-haq.jpg
+Test,Mahela Jayawardene,SL,Batsman,149,11814,49.8,34,50,6,62,205,15,374,2,30,,,players/mahela-jayawardene.jpg
+Test,Kevin Pietersen,ENG,Batsman,104,8181,47.3,23,35,5,64,55,8,227,3,52,,,players/kevin-pietersen.jpg
+Test,Mohammad Ashraful,BAN,Batsman,61,2737,22.8,4,12,7,45,34,6,158,2,33,,,players/mohammad-ashraful.jpg
 Test,Younis Khan,PAK,Batsman,118,10099,52.05,34,33,2,51,139,14,313,1,14,,,
 Test,Anil Kumble,IND,Bowler,132,2506,17.1,1,5,619,29.7,60,32,110,10,74,,,players/anil-kumble.jpg
 Test,Zaheer Khan,IND,Bowler,92,1231,11.4,0,4,311,32.9,24,20,75,7,87,,,players/zaheer-khan.jpg
@@ -168,14 +168,14 @@ T20I,Shakib Al Hasan,BAN,Batting All-rounder,129,2551,23.5,0,14,149,20.4,40,20,8
 T20I,Kevin O'Brien,IRE,Batting All-rounder,110,1973,21,1,9,31,30,40,15,124,4,14,130.5,8.2,
 T20I,Mohammad Nabi,AFG,Batting All-rounder,125,2000,19,0,8,90,21,40,20,84,3,10,143,6.9,
 T20I,Irfan Pathan,IND,Bowling All-rounder,24,172,14.3,0,0,28,21.5,7,6,33,3,16,130,7.8,
-T20I,Joginder Sharma,IND,Bowling All-rounder,4,3,3,0,0,4,23,1,1,3,2,20,100,9,
+T20I,Joginder Sharma,IND,Bowling All-rounder,4,3,3,0,0,4,23,1,1,3,2,20,100,9,players/joginder-sharma.jpg
 T20I,Andrew Symonds,AUS,Bowling All-rounder,14,337,42,0,2,8,29,5,3,85,2,21,145,8.5,players/andrew-symonds.jpg
 T20I,Abdul Razzaq,PAK,Bowling All-rounder,31,342,19,0,0,21,27,8,4,49,3,24,130,7.9,players/abdul-razzaq.jpg
-T20I,Dwayne Bravo,WI,Bowling All-rounder,91,1255,21,0,2,78,24.7,40,26,66,4,26,120,8.2,
+T20I,Dwayne Bravo,WI,Bowling All-rounder,91,1255,21,0,2,78,24.7,40,26,66,4,26,120,8.2,players/dwayne-bravo.jpg
 T20I,Darren Sammy,WI,Bowling All-rounder,68,936,20.4,0,2,44,27.5,28,18,90,4,24,130,8.3,players/darren-sammy.jpg
 T20I,Daniel Vettori,NZ,Bowling All-rounder,34,205,13,0,0,38,20.5,12,10,33,4,20,100,6.5,players/daniel-vettori.jpg
-T20I,Jacob Oram,NZ,Bowling All-rounder,36,232,12.2,0,1,32,23.4,10,5,66,3,10,125,7.8,
+T20I,Jacob Oram,NZ,Bowling All-rounder,36,232,12.2,0,1,32,23.4,10,5,66,3,10,125,7.8,players/jacob-oram.jpg
 T20I,Albie Morkel,SA,Bowling All-rounder,11,32,10.7,0,0,7,31,3,2,21,2,24,133,8.5,players/albie-morkel.jpg
-T20I,Shaun Pollock,SA,Bowling All-rounder,12,59,14.8,0,0,8,28,3,3,16,2,17,115,6.5,
-T20I,Nuwan Kulasekara,SL,Bowling All-rounder,58,380,15,0,0,66,25,15,12,32,3,15,115,7.8,
-T20I,Paul Collingwood,ENG,Bowling All-rounder,35,583,21.6,0,2,12,25,16,6,79,2,11,125,7.5,
+T20I,Shaun Pollock,SA,Bowling All-rounder,12,59,14.8,0,0,8,28,3,3,16,2,17,115,6.5,players/shaun-pollock.jpg
+T20I,Nuwan Kulasekara,SL,Bowling All-rounder,58,380,15,0,0,66,25,15,12,32,3,15,115,7.8,players/nuwan-kulasekara.jpg
+T20I,Paul Collingwood,ENG,Bowling All-rounder,35,583,21.6,0,2,12,25,16,6,79,2,11,125,7.5,players/paul-collingwood.jpg
