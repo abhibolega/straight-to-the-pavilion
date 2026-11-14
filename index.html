@@ -255,8 +255,9 @@ const ty=fbT?"Scope for improvement":"Issue",sub="Straight to the Pavilion feedb
 fbLast={sub,body:"Type: "+ty+"\n\nDescription:\n"+d+"\n\nHonest opinion:\n"+o+"\n\nEmail: "+(e||"-")};
 b.disabled=true;m.textContent="Sending…";
 try{const r=await fetch("https://formsubmit.co/ajax/"+FBM,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({_subject:sub,_template:"table",_captcha:"false",Type:ty,Description:d,"Honest opinion":o,Email:e||"-",Format:D[mode].n})});
-const j=await r.json();if(r.ok&&(j.success===true||j.success==="true")){m.textContent="Thank you. Your feedback is on its way.";return}throw 0}
-catch(x){b.disabled=false;m.innerHTML="Couldn’t send it directly. <button onclick=\"fbMail()\">OPEN EMAIL APP</button>"}}
+const j=await r.json().catch(()=>({}));if(r.ok&&(j.success===true||j.success==="true")){m.textContent="Thank you. Your feedback is on its way.";return}throw new Error(j.message||"The form service refused it")}
+catch(x){b.disabled=false;m.innerHTML="Couldn’t send it directly ("+esc(String(x&&x.message||"no reply").slice(0,140))+"). Send it by email instead:<br><button onclick=\"fbMail()\">OPEN EMAIL APP</button><button onclick=\"fbCopy()\">COPY MESSAGE</button><br>"+FBM}}
+function fbCopy(){const t="To: "+FBM+"\nSubject: "+fbLast.sub+"\n\n"+fbLast.body;try{navigator.clipboard.writeText(t).then(()=>{$("fbm").textContent="Copied. Paste it into an email to "+FBM+"."})}catch(e){}}
 function render(){const a=$("app");const bar=b=>`<div class="row" style="margin:0 0 8px;justify-content:space-between"><button onclick="${b}">Back</button>${sndBtn()}</div>`;
 if(fb){a.innerHTML=bar("fbClose()")+fbView();return}
 if(view&&!S){a.innerHTML=bar("backV()")+(view==="auth"?authView():statsView());return}
