@@ -110,8 +110,8 @@ let me={id:(()=>{let i=LS.g("sp-id");if(!i){i=Math.random().toString(36).slice(2
 const hasRoom=()=>window.claude&&typeof claude.use==="function";
 function nameIn(){const e=$("nm");if(e){me.name=e.value.trim().slice(0,14);LS.s("sp-name",me.name);if(cur){const u=users();if(u[cur]&&u[cur].name!==(me.name||cur)){u[cur].name=me.name||cur;saveU(u);syncUp()}}}}
 const myName=()=>me.name||"Player";
-function deal(m,ps){ps.forEach(p=>p.hand=[]);shuf([...Array(D[m].c.length).keys()]).forEach((c,i)=>ps[i%ps.length].hand.push(c));return{mode:m,ps,lead:0,ph:"pick",pot:[],rd:1,rev:null,over:null,dl:m==="W"?Date.now()+20000:0}}
-function sync(){if(R&&H)R.emit("st",S).catch(()=>{});if(S&&S.over&&!S.rec&&H){S.rec=1;recordGame()}saveG();render();botMove();clearTimeout(at);if(H&&R&&S&&S.ph==="rev"&&!S.over)at=setTimeout(()=>{if(S.ph==="rev")nxt()},7000)}
+function deal(m,ps){ps.forEach(p=>p.hand=[]);shuf([...Array(D[m].c.length).keys()]).forEach((c,i)=>ps[i%ps.length].hand.push(c));return{gid:Math.random().toString(36).slice(2,8),mode:m,ps,lead:0,ph:"pick",pot:[],rd:1,rev:null,over:null,dl:m==="W"?Date.now()+20000:0}}
+function sync(){if(R&&H)R.emit("st",S).catch(()=>{});recCheck();saveG();render();botMove();clearTimeout(at);if(H&&R&&S&&S.ph==="rev"&&!S.over)at=setTimeout(()=>{if(S.ph==="rev")nxt()},7000)}
 function pick(st){if(S.ph!=="pick")return;hfm=false;const act=S.ps.filter(p=>p.hand.length),m=D[S.mode].c;
 const vals=act.map(p=>({id:p.id,c:p.hand[0],v:sv(m[p.hand[0]],st)})),mx=Math.max(...vals.map(x=>x.v)),w=vals.filter(x=>x.v===mx);
 S.rev={st,vals,w:w.length===1?w[0].id:null,n:vals.length+S.pot.length};
@@ -153,20 +153,28 @@ if(fom)return `<div class="mdl"><div class="box"><h3>FORFEIT THE MATCH?</h3><p c
 if(S.fo&&S.fo.id!==me.id&&!(me.id in S.fo.v)&&S.ps.find(q=>q.id===me.id&&q.hand.length))return `<div class="mdl"><div class="box"><h3>${esc(S.fo.name).toUpperCase()} WANTS TO FORFEIT</h3><p class="mu">Agree and the game ends, with the leader winning. Or keep playing and their cards are shared out between the rest of you.</p><button class="go" onclick="fvBtn(true)">END THE GAME</button><button onclick="fvBtn(false)">KEEP PLAYING</button></div></div>`;return""}
 function startSP(){nameIn();LS.d("sp-menu");const bn=["Bot Bumrah","Bot Dhoni","Bot Warne"];H=true;R=null;
 S=deal(mode,[{id:me.id,name:myName()},...bn.slice(0,nb).map((n,i)=>({id:"b"+i,name:n,bot:1}))]);sync()}
+let SBC=null;
+function loadSB(){return new Promise((res,rej)=>{if(window.supabase)return res(window.supabase);const t=document.createElement("script");t.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js";t.onload=()=>window.supabase?res(window.supabase):rej(new Error("online library missing"));t.onerror=()=>rej(new Error("Couldn’t load the online library"));document.head.appendChild(t)})}
+async function joinRoom(code){const lib=await loadSB();SBC=SBC||lib.createClient(DBCFG.url,DBCFG.key,{realtime:{params:{eventsPerSecond:20}}});
+const ch=SBC.channel("pavilion-"+code,{config:{broadcast:{self:false,ack:false}}}),hs={};
+ch.on("broadcast",{event:"*"},m=>{const f=hs[m.event];if(f)f({data:m.payload&&m.payload.d,isMe:false,peer:m.payload&&m.payload.f})});
+await new Promise((res,rej)=>{let done=false;ch.subscribe(st=>{if(done)return;if(st==="SUBSCRIBED"){done=true;res()}else if(st==="CHANNEL_ERROR"||st==="TIMED_OUT"||st==="CLOSED"){done=true;rej(new Error("connection "+st.toLowerCase().replace("_"," ")))}})});
+return{emit:(t,d)=>ch.send({type:"broadcast",event:t,payload:{d,f:me.id}}),on:(t,f)=>{hs[t]=f},leave:()=>SBC.removeChannel(ch)}}
+function mid(){try{let i=sessionStorage.getItem("sp-mid");if(!i){i=Math.random().toString(36).slice(2,9);sessionStorage.setItem("sp-mid",i)}return i}catch(e){return me.id}}
+function recCheck(){if(S&&S.over&&S.gid&&LS.g("sp-rec")!==S.gid){LS.s("sp-rec",S.gid);recordGame()}}
+function mpBox(){return cloud()?`<h3>PLAY WITH FRIENDS (2 TO 6)</h3><p class="mu">Pick the format and stadium above, host a table, and share the code. Your friends type it in to join.</p><div class="row"><button class="go" onclick="host()">HOST A TABLE</button></div><div class="row"><input id="tc" maxlength="4" placeholder="CODE" style="width:110px;text-transform:uppercase"><button onclick="joinT()">JOIN</button></div><p id="sm" class="mu"></p>`:`<h3>PLAY WITH FRIENDS</h3><p class="mu">Online tables switch on once the Supabase project is connected (see the README).</p>`}
 async function host(){nameIn();say("Creating table…");
-try{if(!hasRoom())return say("Online tables only work on the published page.");
-const ro=await claude.use("room");if(!ro)return say("Online play isn’t available for this viewer.");
+try{if(!cloud())return say("Online tables need the Supabase setup first.");me.id=mid();
 const al="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let code="";for(let i=0;i<4;i++)code+=al[Math.random()*al.length|0];
-R=await ro.join("ct-"+code.toLowerCase());H=true;S={lobby:1,mode,code,ps:[{id:me.id,name:myName()}]};
+R=await joinRoom(code);H=true;S={lobby:1,mode,code,ps:[{id:me.id,name:myName()}]};
 R.on("jn",m=>{const d=m.data;if(!d||!d.id)return;if(S.lobby&&!S.ps.find(p=>p.id===d.id)&&S.ps.length<6)S.ps.push({id:String(d.id).slice(0,12),name:String(d.name||"Guest").slice(0,14)});sync()});
 R.on("pk",m=>{const d=m.data;if(!d||S.lobby||S.ph!=="pick"||S.ps[S.lead].id!==d.id||!(d.s>=0&&d.s<11))return;pick(d.s|0)});
 R.on("ff",m=>{const d=m.data;if(d&&d.id&&S&&!S.lobby)doFo(String(d.id))});R.on("fv",m=>{const d=m.data;if(d&&d.id&&S&&S.fo)foVote(String(d.id),!!d.a)});
 setInterval(()=>R.emit("st",S).catch(()=>{}),3000);sync()}catch(e){H=false;S=null;say("Couldn’t open a table ("+((e&&e.code)||"error")+"). Try again.")}}
-async function joinT(){nameIn();const code=($("tc").value||"").trim().toLowerCase();if(!code)return say("Enter the table code.");
-try{if(!hasRoom())return say("Online tables only work on the published page.");
-const ro=await claude.use("room");if(!ro)return say("Online play isn’t available for this viewer.");
-R=await ro.join("ct-"+code);H=false;
-R.on("st",m=>{if(m.isMe)return;if(!hp)hp=m.peer;if(m.peer!==hp)return;S=m.data;render()});
+async function joinT(){nameIn();const code=($("tc").value||"").trim().toUpperCase();if(!code)return say("Enter the table code.");
+try{if(!cloud())return say("Online tables need the Supabase setup first.");me.id=mid();hp=null;
+R=await joinRoom(code);H=false;
+R.on("st",m=>{if(m.isMe)return;if(!hp)hp=m.peer;if(m.peer!==hp)return;S=m.data;recCheck();render()});
 const hi=()=>R.emit("jn",{id:me.id,name:myName()}).catch(()=>{});hi();say("Joining table "+code.toUpperCase()+"… (ask the host to stay on the lobby screen)");
 const t=setInterval(()=>{if(S)clearInterval(t);else hi()},1500)}catch(e){say("Couldn’t join that table ("+((e&&e.code)||"error")+").")}}
 function say(t){const e=$("sm");if(e)e.textContent=t}
@@ -187,7 +195,7 @@ return `<div class="row" style="justify-content:flex-end;margin:0">${sndBtn()}</
 <label>PICK A FORMAT</label><div class="fmt">${Object.keys(D).map(k=>`<button class="b${k} ${k===mode?"on":""}" onclick="setMode('${k}')">${D[k].n.toUpperCase()}<small>${ds[k]}</small></button>`).join("")}</div>
 <label>PICK A STADIUM</label><div class="fmt">${STD.map(t=>`<button class="sd ${t[0]===stad?"on":""}" style="background-image:linear-gradient(90deg,#0a1a3ef2 36%,#0a1a3e1a),var(--s-${t[0]})" onclick="setStad('${t[0]}')">${t[1].toUpperCase()}<small>${t[2]}</small></button>`).join("")}</div>
 <label>OPPONENTS</label><div class="seg">${[1,2,3].map(n=>`<button class="${n===nb?"on":""}" onclick="setNb(${n})">${n} BOT${n>1?"S":""}</button>`).join("")}</div>
-${loadG()?`<div class="row"><button class="go" onclick="resumeG()">RESUME MATCH</button></div>`:""}<div class="row"><button class="go" onclick="startSP()">START MATCH</button><button disabled>MULTIPLAYER: SOON</button></div></div>
+${loadG()?`<div class="row"><button class="go" onclick="resumeG()">RESUME MATCH</button></div>`:""}<div class="row"><button class="go" onclick="startSP()">START MATCH</button></div>${mpBox()}</div>
 <div class="box"><h3>HOW TO PLAY</h3><p class="mu">60 cards a format, dealt evenly. The leader picks a stat on their top card and the best value wins every card on the table. Lowest wins for bowling average and economy, and no value loses. Tests: no clock, play until one player holds every card. ODIs: no clock, 50 rounds, most cards wins. T20Is: rush mode, 20 seconds to pick or a random stat is played, 20 rounds. Ties go to the tie pot, which the next round’s winner takes. Behind? Call a forfeit, and the leader decides.</p></div>
 <div class="box"><h3>BETA TESTER?</h3><p class="mu">Found a bug or have an idea? Tell me.</p><button onclick="fbOpen()">SEND FEEDBACK</button></div>`}
 function lobby(){return `<h1>Table <span style="color:var(--acc)">${esc(S.code)}</span></h1><p class="mu">Share this code with friends. ${D[S.mode].n} · ${S.ps.length}/6 players</p><div class="box">${S.ps.map(p=>`<div>• ${esc(p.name)}${p.id===me.id?" (you)":""}</div>`).join("")}
