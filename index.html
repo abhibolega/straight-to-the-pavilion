@@ -215,7 +215,7 @@ function sndBtn(){return `<button class="snd" onclick="sndToggle()">SOUND: ${snd
 function sndToggle(){snd=!snd;try{localStorage.setItem("sp-snd",snd?"1":"0")}catch(e){}sndPlay();document.querySelectorAll(".snd").forEach(b=>{b.textContent="SOUND: "+(snd?"ON":"OFF")})}
 document.addEventListener("pointerdown",()=>{if(snd&&CA.paused)sndPlay()},{passive:true});
 document.addEventListener("visibilitychange",()=>{if(document.hidden)CA.pause();else if(snd&&sndOn)sndPlay()});
-const DBCFG={url:"https://egcoscxhidhlktqyqtit.supabase.co/rest/v1/",key:"sb_publishable_gbmPgyVabd_pxmH72coaSg_K_SXS4Px"};
+const DBCFG={url:"https://egcoscxhidhlktqyqtit.supabase.co/rest/v1/",key:"sb_publishable_t0p_lCbXNtddAVgYueOSBQ_i0cqnePb"};
 const cloud=()=>!!(DBCFG.url&&DBCFG.key);
 async function rpc(fn,args){const h={apikey:DBCFG.key,"Content-Type":"application/json"};if(DBCFG.key.startsWith("eyJ"))h.Authorization="Bearer "+DBCFG.key;
 const r=await fetch(DBCFG.url.replace(/\/$/,"")+"/rest/v1/rpc/"+fn,{method:"POST",headers:h,body:JSON.stringify(args)});const t=await r.text();let j=null;try{j=t?JSON.parse(t):null}catch(e){}
