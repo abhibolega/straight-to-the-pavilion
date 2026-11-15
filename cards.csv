@@ -64,103 +64,103 @@ ODI,Virender Sehwag,IND,Batsman,251,8273,35.1,15,38,96,41,96,10,219,4,6,,,player
 ODI,Sourav Ganguly,IND,Batsman,311,11363,41,22,72,100,38.5,100,23,183,5,16,,,players/sourav-ganguly.jpg
 ODI,Ricky Ponting,AUS,Batsman,375,13704,42,30,82,3,34,160,39,164,1,23,,,players/ricky-ponting.jpg
 ODI,Rahul Dravid,IND,Batsman,344,10889,39.16,12,83,4,42.5,196,40,153,2,43,,,players/rahul-dravid.jpg
-ODI,Inzamam-ul-Haq,PAK,Batsman,378,11739,39.5,10,83,3,40,80,52,137,1,17,,,
-ODI,Brian Lara,WI,Batsman,299,10405,40.5,19,63,4,65,120,32,169,1,18,,,
-ODI,Mahela Jayawardene,SL,Batsman,448,12650,33.4,19,77,8,35,218,39,144,2,18,,,
-ODI,Stephen Fleming,NZ,Batsman,280,8037,32.4,8,49,1,36,133,15,134,1,18,,,
-ODI,Kevin Pietersen,ENG,Batsman,136,4440,40.7,9,25,7,41,40,21,130,2,21,,,
-ODI,Ross Taylor,NZ,Batsman,236,8607,48.2,21,51,0,,142,38,181,,,,,
-ODI,Graeme Smith,SA,Batsman,197,6989,37.98,10,37,18,38,66,9,141,2,21,,,
+ODI,Inzamam-ul-Haq,PAK,Batsman,378,11739,39.5,10,83,3,40,80,52,137,1,17,,,players/inzamam-ul-haq.jpg
+ODI,Brian Lara,WI,Batsman,299,10405,40.5,19,63,4,65,120,32,169,1,18,,,players/brian-lara.jpg
+ODI,Mahela Jayawardene,SL,Batsman,448,12650,33.4,19,77,8,35,218,39,144,2,18,,,players/mahela-jayawardene.jpg
+ODI,Stephen Fleming,NZ,Batsman,280,8037,32.4,8,49,1,36,133,15,134,1,18,,,players/stephen-fleming.jpg
+ODI,Kevin Pietersen,ENG,Batsman,136,4440,40.7,9,25,7,41,40,21,130,2,21,,,players/kevin-pietersen.jpg
+ODI,Ross Taylor,NZ,Batsman,236,8607,48.2,21,51,0,,142,38,181,,,,,players/ross-taylor.jpg
+ODI,Graeme Smith,SA,Batsman,197,6989,37.98,10,37,18,38,66,9,141,2,21,,,players/graeme-smith.jpg
 ODI,Anil Kumble,IND,Bowler,271,938,10,0,0,337,30.8,85,35,26,6,12,,,players/anil-kumble.jpg
-ODI,Javagal Srinath,IND,Bowler,229,883,9.9,0,0,315,28.1,35,56,43,5,23,,,
+ODI,Javagal Srinath,IND,Bowler,229,883,9.9,0,0,315,28.1,35,56,43,5,23,,,players/javagal-srinath.jpg
 ODI,Zaheer Khan,IND,Bowler,200,792,10,0,0,282,29.4,33,41,34,5,42,,,players/zaheer-khan.jpg
-ODI,Glenn McGrath,AUS,Bowler,250,115,3.5,0,0,381,22,36,45,11,7,15,,,
+ODI,Glenn McGrath,AUS,Bowler,250,115,3.5,0,0,381,22,36,45,11,7,15,,,players/glenn-mcgrath.jpg
 ODI,Shane Warne,AUS,Bowler,194,1018,13.2,1,0,293,25.7,80,18,55,5,33,,,players/shane-warne.jpg
 ODI,Brett Lee,AUS,Bowler,221,1100,9.9,0,0,380,23,36,38,59,5,22,,,players/brett-lee.jpg
-ODI,Shoaib Akhtar,PAK,Bowler,163,544,6,0,0,247,24.4,16,20,43,5,16,,,
+ODI,Shoaib Akhtar,PAK,Bowler,163,544,6,0,0,247,24.4,16,20,43,5,16,,,players/shoaib-akhtar.jpg
 ODI,Muttiah Muralitharan,SL,Bowler,350,674,6.8,0,0,534,23.1,70,60,33,7,30,,,players/muttiah-muralitharan.jpg
 ODI,Allan Donald,SA,Bowler,164,652,6.4,0,0,272,21.8,34,19,32,6,23,,,players/allan-donald.jpg
-ODI,Mashrafe Mortaza,BAN,Bowler,220,1787,20,0,0,270,29.8,50,30,51,4,29,,,
-ODI,Makhaya Ntini,SA,Bowler,173,366,7.3,0,0,266,24.5,38,34,32,6,22,,,
-ODI,Lasith Malinga,SL,Bowler,226,1015,11.3,0,0,338,28.8,42,41,56,6,38,,,
+ODI,Mashrafe Mortaza,BAN,Bowler,220,1787,20,0,0,270,29.8,50,30,51,4,29,,,players/mashrafe-mortaza.jpg
+ODI,Makhaya Ntini,SA,Bowler,173,366,7.3,0,0,266,24.5,38,34,32,6,22,,,players/makhaya-ntini.jpg
+ODI,Lasith Malinga,SL,Bowler,226,1015,11.3,0,0,338,28.8,42,41,56,6,38,,,players/lasith-malinga.jpg
 ODI,MS Dhoni,IND,Wicket-keeper,350,10773,50.6,10,73,0,,444,84,183,,,,,players/ms-dhoni.jpg
-ODI,Nayan Mongia,IND,Wicket-keeper,140,1272,19.3,0,4,0,,154,25,69,,,,,
+ODI,Nayan Mongia,IND,Wicket-keeper,140,1272,19.3,0,4,0,,154,25,69,,,,,players/nayan-mongia.jpg
 ODI,Adam Gilchrist,AUS,Wicket-keeper,287,9619,35.9,16,55,0,,472,11,172,,,,,players/adam-gilchrist.jpg
-ODI,Moin Khan,PAK,Wicket-keeper,219,3266,22.2,1,11,0,,287,32,72,,,,,
+ODI,Moin Khan,PAK,Wicket-keeper,219,3266,22.2,1,11,0,,287,32,72,,,,,players/moin-khan.jpg
 ODI,Alec Stewart,ENG,Wicket-keeper,170,4677,31.6,4,28,0,,196,13,116,,,,,players/alec-stewart.jpg
-ODI,Mark Boucher,SA,Wicket-keeper,295,4686,26.9,1,25,0,,424,39,147,,,,,
-ODI,Kumar Sangakkara,SL,Wicket-keeper,404,14234,42,25,93,0,,482,41,169,,,,,
+ODI,Mark Boucher,SA,Wicket-keeper,295,4686,26.9,1,25,0,,424,39,147,,,,,players/mark-boucher.jpg
+ODI,Kumar Sangakkara,SL,Wicket-keeper,404,14234,42,25,93,0,,482,41,169,,,,,players/kumar-sangakkara.jpg
 ODI,Brendon McCullum,NZ,Wicket-keeper,260,6083,30.4,5,31,0,,200,17,166,,,,,players/brendon-mccullum.jpg
 ODI,Andy Flower,ZIM,Wicket-keeper,213,6786,35.3,4,55,0,,210,35,145,,,,,players/andy-flower.jpg
-ODI,Niall O'Brien,IRE,Wicket-keeper,65,1400,25,1,8,0,,66,4,79,,,,,
-ODI,Mushfiqur Rahim,BAN,Wicket-keeper,274,7795,36.9,9,49,0,,240,35,144,,,,,
-ODI,Kamran Akmal,PAK,Wicket-keeper,157,3236,26.5,1,17,0,,202,12,124,,,,,
-ODI,Yuvraj Singh,IND,Batting All-rounder,304,8701,36.6,14,52,111,38.8,90,20,150,5,31,,,
+ODI,Niall O'Brien,IRE,Wicket-keeper,65,1400,25,1,8,0,,66,4,79,,,,,players/niall-o-brien.jpg
+ODI,Mushfiqur Rahim,BAN,Wicket-keeper,274,7795,36.9,9,49,0,,240,35,144,,,,,players/mushfiqur-rahim.jpg
+ODI,Kamran Akmal,PAK,Wicket-keeper,157,3236,26.5,1,17,0,,202,12,124,,,,,players/kamran-akmal.jpg
+ODI,Yuvraj Singh,IND,Batting All-rounder,304,8701,36.6,14,52,111,38.8,90,20,150,5,31,,,players/yuvraj-singh.jpg
 ODI,Ajay Jadeja,IND,Batting All-rounder,196,5359,37.5,6,30,20,36,54,12,119,3,31,,,players/ajay-jadeja.jpg
 ODI,Andrew Symonds,AUS,Batting All-rounder,198,5088,39.8,6,30,133,37.3,80,21,156,5,18,,,players/andrew-symonds.jpg
-ODI,Shahid Afridi,PAK,Batting All-rounder,398,8064,23.6,6,39,395,34.5,100,12,124,7,12,,,
+ODI,Shahid Afridi,PAK,Batting All-rounder,398,8064,23.6,6,39,395,34.5,100,12,124,7,12,,,players/shahid-afridi.jpg
 ODI,Andrew Flintoff,ENG,Batting All-rounder,141,3394,32.3,3,18,169,24.4,52,25,123,5,19,,,players/andrew-flintoff.jpg
 ODI,Chris Gayle,WI,Batting All-rounder,301,10480,37.8,25,54,167,35.2,124,17,215,5,46,,,players/chris-gayle.jpg
-ODI,Jacques Kallis,SA,Batting All-rounder,328,11579,44.4,17,86,273,31,131,53,139,5,30,,,
-ODI,Lance Klusener,SA,Batting All-rounder,171,3576,41.1,2,19,192,29.9,60,50,103,6,49,,,
-ODI,Grant Flower,ZIM,Batting All-rounder,221,6571,34.2,6,40,70,41,80,23,142,6,42,,,
-ODI,Nathan Astle,NZ,Batting All-rounder,223,7090,34.9,16,41,156,36.5,58,17,156,4,43,,,
-ODI,Shakib Al Hasan,BAN,Batting All-rounder,247,7570,37.5,9,56,317,30.5,80,22,134,5,29,,,
-ODI,Tillakaratne Dilshan,SL,Batting All-rounder,330,10290,39.3,22,47,106,40.5,120,38,160,4,30,,,
-ODI,Harbhajan Singh,IND,Bowling All-rounder,236,1237,13.6,0,0,269,33.4,70,52,49,5,28,,,
-ODI,Irfan Pathan,IND,Bowling All-rounder,120,1544,23.4,0,9,173,29.7,24,25,83,5,27,,,
-ODI,Shane Watson,AUS,Bowling All-rounder,190,5757,40.5,9,33,168,31.8,70,18,185,6,33,,,
-ODI,Shaun Pollock,SA,Bowling All-rounder,303,3519,26.5,0,15,393,24.5,72,85,130,6,35,,,
+ODI,Jacques Kallis,SA,Batting All-rounder,328,11579,44.4,17,86,273,31,131,53,139,5,30,,,players/jacques-kallis.jpg
+ODI,Lance Klusener,SA,Batting All-rounder,171,3576,41.1,2,19,192,29.9,60,50,103,6,49,,,players/lance-klusener.jpg
+ODI,Grant Flower,ZIM,Batting All-rounder,221,6571,34.2,6,40,70,41,80,23,142,6,42,,,players/grant-flower.jpg
+ODI,Nathan Astle,NZ,Batting All-rounder,223,7090,34.9,16,41,156,36.5,58,17,156,4,43,,,players/nathan-astle.jpg
+ODI,Shakib Al Hasan,BAN,Batting All-rounder,247,7570,37.5,9,56,317,30.5,80,22,134,5,29,,,players/shakib-al-hasan.jpg
+ODI,Tillakaratne Dilshan,SL,Batting All-rounder,330,10290,39.3,22,47,106,40.5,120,38,160,4,30,,,players/tillakaratne-dilshan.jpg
+ODI,Harbhajan Singh,IND,Bowling All-rounder,236,1237,13.6,0,0,269,33.4,70,52,49,5,28,,,players/harbhajan-singh.jpg
+ODI,Irfan Pathan,IND,Bowling All-rounder,120,1544,23.4,0,9,173,29.7,24,25,83,5,27,,,players/irfan-pathan.jpg
+ODI,Shane Watson,AUS,Bowling All-rounder,190,5757,40.5,9,33,168,31.8,70,18,185,6,33,,,players/shane-watson.jpg
+ODI,Shaun Pollock,SA,Bowling All-rounder,303,3519,26.5,0,15,393,24.5,72,85,130,6,35,,,players/shaun-pollock.jpg
 ODI,Daniel Vettori,NZ,Bowling All-rounder,295,2253,17.3,0,4,305,36.2,80,70,83,5,7,,,players/daniel-vettori.jpg
 ODI,Chaminda Vaas,SL,Bowling All-rounder,322,2025,14.2,0,6,400,27.5,50,40,90,8,19,,,players/chaminda-vaas.jpg
-ODI,Heath Streak,ZIM,Bowling All-rounder,189,2943,20,0,13,239,29.8,50,33,79,5,32,,,
-ODI,Dwayne Bravo,WI,Bowling All-rounder,164,2968,25.4,2,17,199,28,87,26,112,6,43,,,
-ODI,Mohammad Nabi,AFG,Bowling All-rounder,170,3500,27,1,18,170,32,50,22,116,4,18,,,
+ODI,Heath Streak,ZIM,Bowling All-rounder,189,2943,20,0,13,239,29.8,50,33,79,5,32,,,players/heath-streak.jpg
+ODI,Dwayne Bravo,WI,Bowling All-rounder,164,2968,25.4,2,17,199,28,87,26,112,6,43,,,players/dwayne-bravo.jpg
+ODI,Mohammad Nabi,AFG,Bowling All-rounder,170,3500,27,1,18,170,32,50,22,116,4,18,,,players/mohammad-nabi.jpg
 ODI,Abdul Razzaq,PAK,Bowling All-rounder,265,5080,26.8,2,30,269,31.8,62,40,112,6,35,,,players/abdul-razzaq.jpg
 ODI,Darren Sammy,WI,Bowling All-rounder,126,1871,21.6,0,8,81,31.4,60,20,86,4,26,,,players/darren-sammy.jpg
 ODI,Ajit Agarkar,IND,Bowling All-rounder,191,1269,14.6,0,3,288,27.9,50,31,95,6,42,,,players/ajit-agarkar.jpg
-T20I,Rohit Sharma,IND,Batsman,159,4231,32.1,5,32,1,11,66,22,121,1,11,140.9,8,
-T20I,Gautam Gambhir,IND,Batsman,37,932,27.4,0,7,0,,13,3,75,,,119.9,,
+T20I,Rohit Sharma,IND,Batsman,159,4231,32.1,5,32,1,11,66,22,121,1,11,140.9,8,players/rohit-sharna.jpg
+T20I,Gautam Gambhir,IND,Batsman,37,932,27.4,0,7,0,,13,3,75,,,119.9,,players/gautam-gambhir.jpg
 T20I,Virender Sehwag,IND,Batsman,19,394,21.9,0,2,0,,10,1,68,,,145.6,,players/virender-sehwag.jpg
-T20I,Suresh Raina,IND,Batsman,78,1605,29.2,1,5,13,24.4,42,13,101,2,8,134.8,7.5,
+T20I,Suresh Raina,IND,Batsman,78,1605,29.2,1,5,13,24.4,42,13,101,2,8,134.8,7.5,players/suresh-raina.jpg
 T20I,Mike Hussey,AUS,Batsman,38,721,31.3,0,5,0,,20,15,60,,,135,,players/mike-hussey.jpg
 T20I,Ricky Ponting,AUS,Batsman,17,401,28.6,0,2,0,,8,3,98,,,130.9,,players/ricky-ponting.jpg
-T20I,Misbah-ul-Haq,PAK,Batsman,39,788,37.5,0,5,0,,15,16,87,,,117.9,,
-T20I,Younis Khan,PAK,Batsman,25,442,22.1,0,1,0,,6,5,51,,,115,,
-T20I,Mahela Jayawardene,SL,Batsman,55,1493,31.8,1,10,0,,28,8,100,,,126.2,,
-T20I,Tillakaratne Dilshan,SL,Batsman,80,1889,26.6,1,10,5,28,40,11,104,2,13,120.9,7.5,
+T20I,Misbah-ul-Haq,PAK,Batsman,39,788,37.5,0,5,0,,15,16,87,,,117.9,,players/misbah-ul-haq.jpg
+T20I,Younis Khan,PAK,Batsman,25,442,22.1,0,1,0,,6,5,51,,,115,,players/younis-khan.jpg
+T20I,Mahela Jayawardene,SL,Batsman,55,1493,31.8,1,10,0,,28,8,100,,,126.2,,players/mahela-jayawardene.jpg
+T20I,Tillakaratne Dilshan,SL,Batsman,80,1889,26.6,1,10,5,28,40,11,104,2,13,120.9,7.5,players/tillakaratne-dilshan.jpg
 T20I,Chris Gayle,WI,Batsman,79,1899,22.7,2,14,6,28,21,6,117,2,21,137.8,7.6,players/chris-gayle.jpg
-T20I,Kevin Pietersen,ENG,Batsman,37,1176,37.9,0,8,0,,11,6,79,,,141,,
+T20I,Kevin Pietersen,ENG,Batsman,37,1176,37.9,0,8,0,,11,6,79,,,141,,players/kevin-pietersen.jpg
 T20I,Zaheer Khan,IND,Bowler,17,12,4,0,0,17,25.6,3,5,8,4,19,80,7.7,players/zaheer-khan.jpg
-T20I,Harbhajan Singh,IND,Bowler,28,108,10.8,0,0,25,20.3,8,6,21,3,12,108,6.6,
-T20I,Ishant Sharma,IND,Bowler,14,10,5,0,0,8,36.5,3,6,5,3,24,70,8.3,
+T20I,Harbhajan Singh,IND,Bowler,28,108,10.8,0,0,25,20.3,8,6,21,3,12,108,6.6,players/harbhajan-singh.jpg
+T20I,Ishant Sharma,IND,Bowler,14,10,5,0,0,8,36.5,3,6,5,3,24,70,8.3,players/ishant-sharma.jpg
 T20I,Brett Lee,AUS,Bowler,25,70,10,0,0,28,23.4,5,8,22,3,24,100,7.4,players/brett-lee.jpg
-T20I,Mitchell Johnson,AUS,Bowler,30,130,9.3,0,0,38,22.5,8,7,27,3,15,110,7.4,
-T20I,Shaun Tait,AUS,Bowler,21,20,4,0,0,28,20.8,2,7,10,3,24,90,7.2,
-T20I,Umar Gul,PAK,Bowler,60,95,6.3,0,0,85,16.7,13,20,22,5,6,120,7.3,
-T20I,Shane Bond,NZ,Bowler,20,15,5,0,0,25,20.1,3,5,9,3,24,90,7,
-T20I,Lasith Malinga,SL,Bowler,84,270,6,0,0,107,20.1,20,26,28,5,31,110,7.4,
-T20I,Stuart Broad,ENG,Bowler,56,118,7,0,0,65,22.9,12,18,18,4,24,110,7.7,
+T20I,Mitchell Johnson,AUS,Bowler,30,130,9.3,0,0,38,22.5,8,7,27,3,15,110,7.4,players/mitchell-johnson.jpg
+T20I,Shaun Tait,AUS,Bowler,21,20,4,0,0,28,20.8,2,7,10,3,24,90,7.2,players/shaun-tait.jpg
+T20I,Umar Gul,PAK,Bowler,60,95,6.3,0,0,85,16.7,13,20,22,5,6,120,7.3,players/umar-gul.jpg
+T20I,Shane Bond,NZ,Bowler,20,15,5,0,0,25,20.1,3,5,9,3,24,90,7,players/shane-bond.jpg
+T20I,Lasith Malinga,SL,Bowler,84,270,6,0,0,107,20.1,20,26,28,5,31,110,7.4,players/lasith-malinga.jpg
+T20I,Stuart Broad,ENG,Bowler,56,118,7,0,0,65,22.9,12,18,18,4,24,110,7.7,players/stuart-broad.jpg
 T20I,Dale Steyn,SA,Bowler,47,50,6,0,0,64,18.4,12,10,10,3,14,100,6.7,players/dale-steyn.jpg
-T20I,Mashrafe Mortaza,BAN,Bowler,54,220,10,0,0,42,25.1,15,8,31,4,27,140,7.9,
+T20I,Mashrafe Mortaza,BAN,Bowler,54,220,10,0,0,42,25.1,15,8,31,4,27,140,7.9,players/mashrafe-mortaza.jpg
 T20I,MS Dhoni,IND,Wicket-keeper,98,1617,37.6,0,2,0,,91,42,56,,,126.1,,players/ms-dhoni.jpg
-T20I,Dinesh Karthik,IND,Wicket-keeper,60,686,25.4,0,4,0,,60,22,55,,,143,,
+T20I,Dinesh Karthik,IND,Wicket-keeper,60,686,25.4,0,4,0,,60,22,55,,,143,,players/dinesh-karthik.jpg
 T20I,Adam Gilchrist,AUS,Wicket-keeper,13,272,22.7,0,1,0,,12,1,48,,,138,,players/adam-gilchrist.jpg
-T20I,Kamran Akmal,PAK,Wicket-keeper,58,987,18.6,0,5,0,,70,4,74,,,130,,
-T20I,Kumar Sangakkara,SL,Wicket-keeper,56,1382,31.4,0,10,0,,60,12,78,,,118,,
+T20I,Kamran Akmal,PAK,Wicket-keeper,58,987,18.6,0,5,0,,70,4,74,,,130,,players/kamran-akmal.jpg
+T20I,Kumar Sangakkara,SL,Wicket-keeper,56,1382,31.4,0,10,0,,60,12,78,,,118,,players/kumar-sangakkara.jpg
 T20I,AB de Villiers,SA,Wicket-keeper,78,1672,26.1,0,10,0,,55,14,79,,,135,,players/ab-de-villiers.jpg
 T20I,Brendon McCullum,NZ,Wicket-keeper,71,2140,35.7,2,13,0,,40,6,123,,,136.2,,players/brendon-mccullum.jpg
-T20I,Mushfiqur Rahim,BAN,Wicket-keeper,102,1500,21,0,5,0,,70,25,72,,,118,,
-T20I,Denesh Ramdin,WI,Wicket-keeper,71,600,16,0,2,0,,50,10,51,,,105,,
-T20I,Niall O'Brien,IRE,Wicket-keeper,25,380,22,0,1,0,,20,3,52,,,115,,
-T20I,Matt Prior,ENG,Wicket-keeper,10,115,16.4,0,1,0,,8,1,53,,,120,,
-T20I,Mark Boucher,SA,Wicket-keeper,25,160,12.3,0,0,0,,15,4,24,,,104,,
-T20I,Yuvraj Singh,IND,Batting All-rounder,58,1177,28,0,8,28,21.7,20,12,77,3,16,136.4,7.7,
-T20I,Yusuf Pathan,IND,Batting All-rounder,22,236,33.7,0,0,13,25.2,8,6,33,2,22,144,8.5,
-T20I,Shane Watson,AUS,Batting All-rounder,58,1462,29.3,1,8,48,23.3,25,10,124,4,29,142,8.1,
-T20I,Michael Clarke,AUS,Batting All-rounder,34,488,23.2,0,3,5,35,15,6,67,2,9,130,8.4,
-T20I,Shahid Afridi,PAK,Batting All-rounder,99,1416,18,0,4,98,24.4,35,8,54,4,11,145.5,7.3,
-T20I,Mohammad Hafeez,PAK,Batting All-rounder,119,2514,26.1,0,10,61,27,29,15,86,4,10,117.2,6.5,
+T20I,Mushfiqur Rahim,BAN,Wicket-keeper,102,1500,21,0,5,0,,70,25,72,,,118,,players/mushfiqur-rahim.jpg
+T20I,Denesh Ramdin,WI,Wicket-keeper,71,600,16,0,2,0,,50,10,51,,,105,,players/denesh-ramdin.jpg
+T20I,Niall O'Brien,IRE,Wicket-keeper,25,380,22,0,1,0,,20,3,52,,,115,,players/niall-o-brien.jpg
+T20I,Matt Prior,ENG,Wicket-keeper,10,115,16.4,0,1,0,,8,1,53,,,120,,players/matt-prior.jpg
+T20I,Mark Boucher,SA,Wicket-keeper,25,160,12.3,0,0,0,,15,4,24,,,104,,players/mark-boucher.jpg
+T20I,Yuvraj Singh,IND,Batting All-rounder,58,1177,28,0,8,28,21.7,20,12,77,3,16,136.4,7.7,players/yuvraj-singh.jpg
+T20I,Yusuf Pathan,IND,Batting All-rounder,22,236,33.7,0,0,13,25.2,8,6,33,2,22,144,8.5,players/yusuf-pathan.jpg
+T20I,Shane Watson,AUS,Batting All-rounder,58,1462,29.3,1,8,48,23.3,25,10,124,4,29,142,8.1,players/shane-watson.jpg
+T20I,Michael Clarke,AUS,Batting All-rounder,34,488,23.2,0,3,5,35,15,6,67,2,9,130,8.4,players/michael-clarke.jpg
+T20I,Shahid Afridi,PAK,Batting All-rounder,99,1416,18,0,4,98,24.4,35,8,54,4,11,145.5,7.3,players/shahid-afridi.jpg
+T20I,Mohammad Hafeez,PAK,Batting All-rounder,119,2514,26.1,0,10,61,27,29,15,86,4,10,117.2,6.5,players/mohammad-hafeez.jpg
 T20I,Andrew Flintoff,ENG,Batting All-rounder,7,76,15.2,0,0,5,36,3,1,31,2,16,130,8,players/andrew-flintoff.jpg
 T20I,Jacques Kallis,SA,Batting All-rounder,25,666,35,0,4,12,30,10,5,73,2,12,125,8,players/jacques-kallis.jpg
 T20I,Kieron Pollard,WI,Batting All-rounder,101,1569,20.6,0,5,42,29,50,13,83,4,28,148.2,8.5,players/kieron-pollard.jpg
