@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Straight to the Pavilion: a retro cricket trump card game for 80s, 90s and 2000s kids. Pick your stat, beat the bots, take every card.">
+<meta name="description" content="Straight to the Pavilion: Cricket Trump Cards, Now on your Device. Pick your stat, beat the bots or your friends, take every card.">
 <meta property="og:title" content="Straight to the Pavilion">
-<meta property="og:description" content="A retro cricket trump card game for 80s, 90s and 2000s kids. Play Test, ODI or T20I decks against bots.">
+<meta property="og:description" content="Cricket Trump Cards, Now on your Device. Play Test, ODI or T20I decks against bots or friends.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0a1a3e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a1a3e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='%23ffc72c'/%3E%3Ctext x='16' y='22' font-family='monospace' font-weight='bold' font-size='14' text-anchor='middle' fill='%230a1a3e'%3ESP%3C/text%3E%3C/svg%3E">
@@ -111,7 +111,7 @@ const hasRoom=()=>window.claude&&typeof claude.use==="function";
 function nameIn(){const e=$("nm");if(e){me.name=e.value.trim().slice(0,14);LS.s("sp-name",me.name);if(cur){const u=users();if(u[cur]&&u[cur].name!==(me.name||cur)){u[cur].name=me.name||cur;saveU(u);syncUp()}}}}
 const myName=()=>me.name||"Player";
 function deal(m,ps){ps.forEach(p=>p.hand=[]);shuf([...Array(D[m].c.length).keys()]).forEach((c,i)=>ps[i%ps.length].hand.push(c));return{gid:Math.random().toString(36).slice(2,8),mode:m,ps,lead:0,ph:"pick",pot:[],rd:1,rev:null,over:null,dl:m==="W"?Date.now()+20000:0}}
-function sync(){if(R&&H)R.emit("st",S).catch(()=>{});recCheck();saveG();render();botMove();clearTimeout(at);if(H&&R&&S&&S.ph==="rev"&&!S.over)at=setTimeout(()=>{if(S.ph==="rev")nxt()},7000)}
+function sync(){if(R&&H)R.emit("st",S).catch(()=>{});recCheck();saveG();render();botMove();}
 function pick(st){if(S.ph!=="pick")return;hfm=false;const act=S.ps.filter(p=>p.hand.length),m=D[S.mode].c;
 const vals=act.map(p=>({id:p.id,c:p.hand[0],v:sv(m[p.hand[0]],st)})),mx=Math.max(...vals.map(x=>x.v)),w=vals.filter(x=>x.v===mx);
 S.rev={st,vals,w:w.length===1?w[0].id:null,n:vals.length+S.pot.length};
@@ -135,6 +135,8 @@ return `<div class="mdl"><div class="box"><h3>PICK ONE</h3><button class="go" on
 function act(i){if(!S||S.fo||S.ph!=="pick"||S.ps[S.lead].id!==me.id)return;if(R&&!H)R.emit("pk",{id:me.id,s:i}).catch(()=>{});else pick(i)}
 function topP(){const m=Math.max(...S.ps.map(p=>p.hand.length)),t=S.ps.filter(p=>p.hand.length===m);return t.length===1?t[0]:null}
 let fom=false;
+function canNext(){return !R||S.ps[S.lead].id===me.id}
+function nextBtn(){if(!S||S.ph!=="rev"||!canNext())return;if(R&&!H){R.emit("nx",{id:me.id}).catch(()=>{});return}nxt()}
 function foAsk(){if(!S||S.lobby||S.over||S.fo)return;hfm=false;fom=true;render()}
 function foNo(){fom=false;render()}
 function foYes(){fom=false;if(R&&!H){R.emit("ff",{id:me.id}).catch(()=>{});render();return}doFo(me.id)}
@@ -155,7 +157,7 @@ function startSP(){nameIn();LS.d("sp-menu");const bn=["Bot Bumrah","Bot Dhoni","
 S=deal(mode,[{id:me.id,name:myName()},...bn.slice(0,nb).map((n,i)=>({id:"b"+i,name:n,bot:1}))]);sync()}
 let SBC=null;
 function loadSB(){return new Promise((res,rej)=>{if(window.supabase)return res(window.supabase);const t=document.createElement("script");t.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js";t.onload=()=>window.supabase?res(window.supabase):rej(new Error("online library missing"));t.onerror=()=>rej(new Error("Couldn’t load the online library"));document.head.appendChild(t)})}
-async function joinRoom(code){const lib=await loadSB();SBC=SBC||lib.createClient(DBCFG.url,DBCFG.key,{realtime:{params:{eventsPerSecond:20}}});
+async function joinRoom(code){const lib=await loadSB();SBC=SBC||lib.createClient(DBU(),DBCFG.key,{realtime:{params:{eventsPerSecond:20}}});
 const ch=SBC.channel("pavilion-"+code,{config:{broadcast:{self:false,ack:false}}}),hs={};
 ch.on("broadcast",{event:"*"},m=>{const f=hs[m.event];if(f)f({data:m.payload&&m.payload.d,isMe:false,peer:m.payload&&m.payload.f})});
 await new Promise((res,rej)=>{let done=false;ch.subscribe(st=>{if(done)return;if(st==="SUBSCRIBED"){done=true;res()}else if(st==="CHANNEL_ERROR"||st==="TIMED_OUT"||st==="CLOSED"){done=true;rej(new Error("connection "+st.toLowerCase().replace("_"," ")))}})});
@@ -169,12 +171,13 @@ const al="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let code="";for(let i=0;i<4;i++)code
 R=await joinRoom(code);H=true;S={lobby:1,mode,code,ps:[{id:me.id,name:myName()}]};
 R.on("jn",m=>{const d=m.data;if(!d||!d.id)return;if(S.lobby&&!S.ps.find(p=>p.id===d.id)&&S.ps.length<6)S.ps.push({id:String(d.id).slice(0,12),name:String(d.name||"Guest").slice(0,14)});sync()});
 R.on("pk",m=>{const d=m.data;if(!d||S.lobby||S.ph!=="pick"||S.ps[S.lead].id!==d.id||!(d.s>=0&&d.s<11))return;pick(d.s|0)});
+R.on("nx",m=>{const d=m.data;if(S&&S.ph==="rev"&&!S.fo&&d&&S.ps[S.lead].id===d.id)nxt()});
 R.on("ff",m=>{const d=m.data;if(d&&d.id&&S&&!S.lobby)doFo(String(d.id))});R.on("fv",m=>{const d=m.data;if(d&&d.id&&S&&S.fo)foVote(String(d.id),!!d.a)});
 setInterval(()=>R.emit("st",S).catch(()=>{}),3000);sync()}catch(e){H=false;S=null;say("Couldn’t open a table ("+((e&&e.code)||"error")+"). Try again.")}}
 async function joinT(){nameIn();const code=($("tc").value||"").trim().toUpperCase();if(!code)return say("Enter the table code.");
 try{if(!cloud())return say("Online tables need the Supabase setup first.");me.id=mid();hp=null;
-R=await joinRoom(code);H=false;
-R.on("st",m=>{if(m.isMe)return;if(!hp)hp=m.peer;if(m.peer!==hp)return;S=m.data;recCheck();render()});
+R=await joinRoom(code);H=false;lastSt="";
+R.on("st",m=>{if(m.isMe)return;if(!hp)hp=m.peer;if(m.peer!==hp)return;const j=JSON.stringify(m.data);if(j===lastSt)return;lastSt=j;S=m.data;recCheck();render()});
 const hi=()=>R.emit("jn",{id:me.id,name:myName()}).catch(()=>{});hi();say("Joining table "+code.toUpperCase()+"… (ask the host to stay on the lobby screen)");
 const t=setInterval(()=>{if(S)clearInterval(t);else hi()},1500)}catch(e){say("Couldn’t join that table ("+((e&&e.code)||"error")+").")}}
 function say(t){const e=$("sm");if(e)e.textContent=t}
@@ -185,12 +188,13 @@ const RL=[["Batsman","","#1e5fbf"],["Bowler","","#c62828"],["Wicket-keeper","","
 const ini=n=>n.replace(/[^A-Za-z ]/g,"").split(" ").filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 const FL={"IND":"flags/india.png","AUS":"flags/australia.png","PAK":"flags/pakistan.png","ENG":"flags/england.png","SL":"flags/sri-lanka.png","WI":"flags/west-indies.png","SA":"flags/south-africa.png","NZ":"flags/new-zealand.png","BAN":"flags/bangladesh.png","ZIM":"flags/zimbabwe.png","AFG":"flags/afghanistan.png","IRE":"flags/ireland.png"};
 const FM={T:"TEST MATCHES",O:"ONE-DAY INTERNATIONALS",W:"T20 INTERNATIONALS"};
+let animKey="",lastSt="";const akey=()=>S&&S.rev?S.gid+":"+S.rev.st+":"+S.rev.vals.map(v=>v.id+v.c).join(","):"";
 function cd(c,o={}){const d=D[S.mode],x=d.c[c],M=STS[S.mode],nf=Math.min(7.4,118/x[0].length).toFixed(2),cl=i=>o.sel===i||(i==="hf"&&(o.sel===5||o.sel===6))?(o.win?"sel selw":"sel"):"";
 const cells=CELLS.map(i=>i==="hf"?`<div class="s ${cl(i)} ${o.pick?"pk":""}" ${o.pick?`onclick="hfOpen()"`:""}><span>100s/50s:</span><b>${x[6]}/${x[7]}</b></div>`:`<div class="s ${cl(i)} ${o.pick?"pk":""}" ${o.pick?`onclick="act(${i})"`:""}><span>${i===10&&x[2]===2?"Ct/St":(M[i][3]||M[i][0])}:</span><b>${dv(x,i)}</b></div>`).join("");
 const pic=PIC[slug(x[0])];
-return `<div class="cd ${o.win?"win":""} ${o.sel>=0?"fl":""}"><div class="fr"><div class="ph"><i>${ini(x[0])}</i>${pic?`<div class="pbg" style="background-image:url(${pic})"></div><img class="pic" src="${pic}" alt="">`:""}</div><div class="nm"><span>${FM[S.mode]}</span></div><div class="fm"><span style="font-size:${nf}cqw">${esc(x[0]).toUpperCase()}</span></div><div class="sp"><svg class="sil" viewBox="0 0 36 89.5"><use href="#silp"/></svg><div class="g">${cells}</div></div></div><div class="fg"><img src="${FL[x[1]]}" alt="${x[1]}"></div></div>`}
+return `<div class="cd ${o.win?"win":""} ${o.sel>=0&&animKey!==akey()?"fl":""}"><div class="fr"><div class="ph"><i>${ini(x[0])}</i>${pic?`<div class="pbg" style="background-image:url(${pic})"></div><img class="pic" src="${pic}" alt="">`:""}</div><div class="nm"><span>${FM[S.mode]}</span></div><div class="fm"><span style="font-size:${nf}cqw">${esc(x[0]).toUpperCase()}</span></div><div class="sp"><svg class="sil" viewBox="0 0 36 89.5"><use href="#silp"/></svg><div class="g">${cells}</div></div></div><div class="fg"><img src="${FL[x[1]]}" alt="${x[1]}"></div></div>`}
 function setup(){const ds={T:"No clock. Play until one player holds every card",O:"No clock. 50 rounds, most cards wins",W:"Rush mode. 20 seconds a pick, 20 rounds"};
-return `<div class="row" style="justify-content:flex-end;margin:0">${sndBtn()}</div><div class="tag">Cricket Trump Cards, Now on your Device</div><h1 class="ti">STRAIGHT TO<br>THE PAVILION</h1><div class="st"></div><p class="sub">Pick your stat. Beat the table. Take every card.</p>
+return `<div class="row" style="justify-content:flex-end;margin:0">${sndBtn()}</div><div class="tag">CRICKET TRUMP CARDS, NOW ON YOUR DEVICE</div><h1 class="ti">STRAIGHT TO<br>THE PAVILION</h1><div class="st"></div><p class="sub">Pick your stat. Beat the table. Take every card.</p>
 <div class="box">${acct()}
 <label>PICK A FORMAT</label><div class="fmt">${Object.keys(D).map(k=>`<button class="b${k} ${k===mode?"on":""}" onclick="setMode('${k}')">${D[k].n.toUpperCase()}<small>${ds[k]}</small></button>`).join("")}</div>
 <label>PICK A STADIUM</label><div class="fmt">${STD.map(t=>`<button class="sd ${t[0]===stad?"on":""}" style="background-image:linear-gradient(90deg,#0a1a3ef2 36%,#0a1a3e1a),var(--s-${t[0]})" onclick="setStad('${t[0]}')">${t[1].toUpperCase()}<small>${t[2]}</small></button>`).join("")}</div>
@@ -206,7 +210,7 @@ if(S.ph==="pick"){if(S.dl)h+=`<div class="tmr">TIME LEFT <b id="tm">${Math.max(0
 else if(r){const w=r.w&&S.ps.find(p=>p.id===r.w);const stn=STS[S.mode][r.st][0],won=!!w&&w.id===me.id;h+=`<div class="msg ${w?(won?"win":"lose"):""}">${w?(won?"You win ":esc(w.name)+" wins ")+r.n+" card"+(r.n>1?"s":"")+" on "+stn:"Tie on "+stn+" — cards go to the pot"}</div><div class="grid g2 ${r.vals.length%2?"odd":""}">${r.vals.map(x=>`<div class="cw"><span class="pn">${esc(S.ps.find(p=>p.id===x.id).name)}</span>${cd(x.c,{sel:r.st,win:x.id===r.w})}</div>`).join("")}</div>`}
 if(S.over)h+=`<div class="ban">${S.how==="tied"?"Match tied!":S.how==="forfeit"&&S.ffId===me.id?"You forfeited. "+esc(S.over)+" wins!":esc(S.over)+" wins"+(S.how==="forfeit"?" by forfeit":S.how==="rounds"?" on cards":"")+"!"}</div><div class="row" style="justify-content:center">${H?`<button class="go" onclick="again()">Rematch</button>`:""}<button onclick="toMenu()">Menu</button></div>`;
 else if(S.fo)h+=`<div class="msg">${S.fo.id===me.id?"You":esc(S.fo.name)} called a forfeit. Waiting for the others to decide…</div>`;
-else if(S.ph==="rev")h+=`<div class="row bb">${H?`<button class="go" onclick="nxt()">Next round</button>`:`<span class="mu">Waiting for host…</span>`}</div>`;
+else if(S.ph==="rev")h+=`<div class="row bb">${canNext()?`<button class="go" onclick="nextBtn()">Next round</button>`:`<span class="mu">Waiting for ${esc(S.ps[S.lead].name)} to continue…</span>`}</div>`;
 return h}
 const CA=new Audio("audio/crowd-sfx.mp3");CA.loop=true;CA.volume=.16;CA.preload="auto";
 let snd=true,sndOn=false;try{snd=localStorage.getItem("sp-snd")!=="0"}catch(e){}
@@ -215,10 +219,10 @@ function sndBtn(){return `<button class="snd" onclick="sndToggle()">SOUND: ${snd
 function sndToggle(){snd=!snd;try{localStorage.setItem("sp-snd",snd?"1":"0")}catch(e){}sndPlay();document.querySelectorAll(".snd").forEach(b=>{b.textContent="SOUND: "+(snd?"ON":"OFF")})}
 document.addEventListener("pointerdown",()=>{if(snd&&CA.paused)sndPlay()},{passive:true});
 document.addEventListener("visibilitychange",()=>{if(document.hidden)CA.pause();else if(snd&&sndOn)sndPlay()});
-const DBCFG={url:"https://egcoscxhidhlktqyqtit.supabase.co",key:"sb_publishable_t0p_lCbXNtddAVgYueOSBQ_i0cqnePb"};
-const cloud=()=>!!(DBCFG.url&&DBCFG.key);
+const DBCFG={url:"https://egcoscxhidhlktqyqtit.supabase.co",key:"sb_publishable_gbmPgyVabd_pxmH72coaSg_K_SXS4Px"};
+const cloud=()=>!!(DBCFG.url&&DBCFG.key),DBU=()=>String(DBCFG.url).trim().replace(/\/rest\/v1\/?$/,"").replace(/\/+$/,"");
 async function rpc(fn,args){const h={apikey:DBCFG.key,"Content-Type":"application/json"};if(DBCFG.key.startsWith("eyJ"))h.Authorization="Bearer "+DBCFG.key;
-const r=await fetch(DBCFG.url.replace(/\/$/,"")+"/rest/v1/rpc/"+fn,{method:"POST",headers:h,body:JSON.stringify(args)});const t=await r.text();let j=null;try{j=t?JSON.parse(t):null}catch(e){}
+const r=await fetch(DBU()+"/rest/v1/rpc/"+fn,{method:"POST",headers:h,body:JSON.stringify(args)});const t=await r.text();let j=null;try{j=t?JSON.parse(t):null}catch(e){}
 if(!r.ok){const e=new Error((j&&j.message)||"error");e.code=(j&&j.code)||r.status;throw e}return j}
 const mergeSt=(a,b)=>{const o=JSON.parse(JSON.stringify(a||{}));for(const m in b||{})for(const t in b[m]){o[m]=o[m]||{};const x=o[m][t]||{p:0,w:0,t:0},y=b[m][t];o[m][t]={p:Math.max(x.p||0,y.p||0),w:Math.max(x.w||0,y.w||0),t:Math.max(x.t||0,y.t||0)}}return o};
 async function syncUp(){if(!cloud()||!cur)return;const h=LS.g("sp-ch"),u=users()[cur];if(!h||!u)return;try{await rpc("sp_save",{p_username:cur,p_hash:h,p_name:u.name||cur,p_stats:u.stats||{}})}catch(e){}}
@@ -286,6 +290,6 @@ function fbCopy(){const t="To: "+FBM+"\nSubject: "+fbLast.sub+"\n\n"+fbLast.body
 function render(){const a=$("app");const bar=b=>`<div class="row" style="margin:0 0 8px;justify-content:space-between"><button onclick="${b}">Back</button>${sndBtn()}</div>`;
 if(fb){a.innerHTML=bar("fbClose()")+fbView();return}
 if(view&&!S){a.innerHTML=bar("backV()")+(view==="auth"?authView():statsView());return}
-a.innerHTML=(S?`<div class="row" style="margin:0 0 8px;justify-content:space-between"><button onclick="toMenu()">Menu</button><div class="grp">${!S.lobby&&!S.over?`<button class="fo" onclick="foAsk()">FORFEIT</button>`:""}${sndBtn()}</div></div>`:"")+(!S?setup():S.lobby?lobby():game())+hfModal()+foModal()}
+a.innerHTML=(S?`<div class="row" style="margin:0 0 8px;justify-content:space-between"><button onclick="toMenu()">Menu</button><div class="grp">${!S.lobby&&!S.over?`<button class="fo" onclick="foAsk()">FORFEIT</button>`:""}${sndBtn()}</div></div>`:"")+(!S?setup():S.lobby?lobby():game())+hfModal()+foModal();if(S&&S.rev)animKey=akey()}
 boot();
 </script></body></html>
