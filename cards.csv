@@ -1,5 +1,5 @@
 format,name,country,role,matches,runs,average,hundreds,fifties,wickets,bowl_avg,catches_stumpings,not_outs,highest,bbi_wickets,bbi_runs,strike_rate,econ_rate,photo
-Test,Sachin Tendulkar,IND,Batsman,200,15921,53.8,51,68,46,54.2,115,33,248,3,10,,,players/sachin-tendulkar.jpg
+Test,Sachin Tendulkar,IND,Batsman,200,15921,53.8,51,68,46,54.2,115,33,248,3,10,,,players/sachin-tendulkar.jpeg
 Test,Rahul Dravid,IND,Batsman,164,13288,52.3,36,63,1,39,210,32,270,1,18,,,players/rahul-dravid.jpg
 Test,Virender Sehwag,IND,Batsman,104,8586,49.3,23,32,40,47.3,91,6,319,5,104,,,players/virender-sehwag.jpg
 Test,VVS Laxman,IND,Batsman,134,8781,45.5,17,56,2,114,135,34,281,1,54,,,players/vvs-laxman.jpg
@@ -34,7 +34,7 @@ Test,Brendon McCullum,NZ,Wicket-keeper,101,6453,38.6,12,31,0,,198,7,302,,,,,play
 Test,Andy Flower,ZIM,Wicket-keeper,63,4794,51.5,12,27,0,,151,19,232,,,,,players/andy-flower.jpg
 Test,Kamran Akmal,PAK,Wicket-keeper,53,2648,30.9,4,12,0,,191,3,158,,,,,players/kamran-akmal.jpg
 Test,Moin Khan,PAK,Wicket-keeper,69,2741,28.8,4,15,0,,147,6,137,,,,,players/moin-khan.jpg
-Test,Denesh Ramdin,WI,Wicket-keeper,74,2898,26.1,4,14,0,,210,5,107,,,,,players-denesh-ramdin.jpg
+Test,Denesh Ramdin,WI,Wicket-keeper,74,2898,26.1,4,14,0,,210,5,107,,,,,players/denesh-ramdin.jpg
 Test,Sourav Ganguly,IND,Batting All-rounder,113,7212,42.2,16,35,32,52.5,71,17,239,3,28,,,players/sourav-ganguly.jpg
 Test,Yuvraj Singh,IND,Batting All-rounder,40,1900,33.9,3,11,9,58,31,5,169,2,22,,,players/yuvraj-singh.jpg
 Test,Mark Waugh,AUS,Batting All-rounder,128,8029,41.8,20,47,59,41.2,181,17,153,5,40,,,players/mark-waugh.jpg
@@ -59,7 +59,7 @@ Test,Dwayne Bravo,WI,Bowling All-rounder,40,2200,31.4,3,13,86,39.1,20,4,113,5,53
 Test,Lance Klusener,SA,Bowling All-rounder,49,1906,32.9,4,8,80,37.1,17,3,174,8,64,,,players/lance-klusener.jpg
 Test,Shahid Afridi,PAK,Bowling All-rounder,27,1716,36.5,5,8,48,35.6,7,2,156,5,52,,,players/shahid-afridi.jpg
 Test,Jacob Oram,NZ,Bowling All-rounder,33,1780,36.3,4,7,60,34.9,28,7,133,4,41,,,players/jacob-oram.jpg
-ODI,Sachin Tendulkar,IND,Batsman,463,18426,44.8,49,96,154,44.5,140,41,200,5,32,,,players/sachin-tendulkar.jpg
+ODI,Sachin Tendulkar,IND,Batsman,463,18426,44.8,49,96,154,44.5,140,41,200,5,32,,,players/sachin-tendulkar.jpeg
 ODI,Virender Sehwag,IND,Batsman,251,8273,35.1,15,38,96,41,96,10,219,4,6,,,players/virender-sehwag.jpg
 ODI,Sourav Ganguly,IND,Batsman,311,11363,41,22,72,100,38.5,100,23,183,5,16,,,players/sourav-ganguly.jpg
 ODI,Ricky Ponting,AUS,Batsman,375,13704,42,30,82,3,34,160,39,164,1,23,,,players/ricky-ponting.jpg
